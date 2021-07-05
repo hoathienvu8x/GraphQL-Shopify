@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import sys
+from app import engine
+
+if __name__ == "__main__":
+    if len(sys.argv[1:]) > 0 and sys.argv[1].lower() == "initdb":
+        from app.scripts import initdb
+        initdb()
+        sys.exit()
+
+    if engine.config["DEBUG"] == False:
+        import logging
+        log = logging.getLogger('werkzeug')
+        log.disabled = True
+        engine.logger.disabled = True
+
+    engine.run('0.0.0.0', port=engine.config["PORT"])
