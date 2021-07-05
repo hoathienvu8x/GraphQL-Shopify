@@ -2,3 +2,6 @@ Flask
 flask-sqlalchemy>=0.15
 SQLAlchemy<1.4.0
 unidecode
+Flask-GraphQL==2.0.1
+graphene==2.1.8
+graphene-sqlalchemy==2.3.0.dev1
